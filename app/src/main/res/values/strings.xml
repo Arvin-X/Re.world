@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Re.world</string>
+    <string name="title_activity_launcher_aty">LauncherAty</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login_aty">LoginAty</string>
+    <string name="title_activity_register_aty">RegisterAty</string>
+    <string name="title_activity_main_aty">MainAty</string>
 </resources>

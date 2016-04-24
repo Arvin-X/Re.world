@@ -1,0 +1,41 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.reuworld.reworld.activities.PublishTaskFstAty">
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <!--bar-->
+        <TextView
+            android:gravity="center"
+            android:text="@string/publish_task"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <EditText
+        android:text="@string/input_task_title"
+        android:background="null"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <EditText
+        android:gravity="top"
+        android:text="@string/input_task_desciption"
+        android:background="null"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"/>
+    <Button
+        android:text="@string/next_step"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    </LinearLayout>

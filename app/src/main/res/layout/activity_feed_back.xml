@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.reuworld.reworld.activities.FeedBackAty">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <!--bar-->
+        <TextView
+            android:gravity="center"
+            android:text="@string/feedback_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <EditText
+        android:background="null"
+        android:gravity="top"
+        android:text="@string/input_feedback"
+        android:layout_weight="8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+    <Button
+        android:text="@string/send_feedback"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+</LinearLayout>

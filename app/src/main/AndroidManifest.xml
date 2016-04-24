@@ -28,6 +28,42 @@
             android:name=".activities.MainAty"
             android:label="@string/title_activity_main_aty" >
         </activity>
+        <activity
+            android:name=".activities.PublishTaskAty"
+            android:label="@string/title_activity_publish_task_aty" >
+        </activity>
+        <activity
+            android:name=".activities.PublishTaskScdAty"
+            android:label="@string/title_activity_publish_task_scd_aty" >
+        </activity>
+        <activity
+            android:name=".activities.ViewSelfInfoAty"
+            android:label="@string/title_activity_view_self_info_aty" >
+        </activity>
+        <activity
+            android:name=".activities.ViewUserInfoAty"
+            android:label="@string/title_activity_view_user_info_aty" >
+        </activity>
+        <activity
+            android:name=".activities.TaskListAty"
+            android:label="@string/title_activity_task_list_aty" >
+        </activity>
+        <activity
+            android:name=".activities.TaskInfoAty"
+            android:label="@string/title_activity_task_info_aty" >
+        </activity>
+        <activity
+            android:name=".activities.FeedBackAty"
+            android:label="@string/title_activity_feed_back_aty" >
+        </activity>
+        <activity
+            android:name=".activities.ViewSelfUserInfoAty"
+            android:label="@string/title_activity_view_self_user_info_aty" >
+        </activity>
+        <activity
+            android:name=".activities.EditableTaskInfoAty"
+            android:label="@string/title_activity_editable_task_info_aty" >
+        </activity>
     </application>
 
 </manifest>

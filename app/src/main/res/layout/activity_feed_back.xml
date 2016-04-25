@@ -17,7 +17,7 @@
             android:layout_height="match_parent" />
     </LinearLayout>
     <EditText
-        android:background="null"
+        android:background="@null"
         android:gravity="top"
         android:text="@string/input_feedback"
         android:layout_weight="8"

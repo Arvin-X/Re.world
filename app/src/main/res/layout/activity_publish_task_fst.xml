@@ -21,14 +21,14 @@
 
     <EditText
         android:text="@string/input_task_title"
-        android:background="null"
+        android:background="@null"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
     <EditText
         android:gravity="top"
         android:text="@string/input_task_desciption"
-        android:background="null"
+        android:background="@null"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="8"/>

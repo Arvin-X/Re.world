@@ -23,7 +23,7 @@
     <string name="input_feedback">可以在这里编辑反馈</string>
     <string name="task_info">任务信息</string>
     <string name="feedback_bar">反馈</string>
-    <string name="view_task_info">任务列表</string>
+    <string name="view_task_list">任务列表</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

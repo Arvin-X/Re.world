@@ -26,6 +26,7 @@ public class CompTaskInfo extends BriefTaskInfo{
     //任务描述
     String taskDescription;
     //已结束任务评价信息
+    //Id+time+score+comment+";" partition by blank space
     String evaluateInfo;
 
     public CompTaskInfo(String taskTitle,int taskID,String promulgatorName,int bounty,int state,String promulgateTime,String labels,String waitTime,

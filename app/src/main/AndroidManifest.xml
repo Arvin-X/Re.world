@@ -2,18 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.reuworld.reworld" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--<uses-permission android:name="android.permission.READ_OWNER_DATA "/>-->
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/reworld"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".activities.LauncherAty"
-            android:label="@string/title_activity_launcher_aty" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,7 +33,7 @@
             android:label="@string/title_activity_main_aty" >
         </activity>
         <activity
-            android:name=".activities.PublishTaskAty"
+            android:name=".activities.PublishTaskFstAty"
             android:label="@string/title_activity_publish_task_aty" >
         </activity>
         <activity
@@ -38,16 +41,13 @@
             android:label="@string/title_activity_publish_task_scd_aty" >
         </activity>
         <activity
-            android:name=".activities.ViewSelfInfoAty"
-            android:label="@string/title_activity_view_self_info_aty" >
+            android:name=".activities.EditSelfInfoAty"
+            android:label="EditeditSelfInfoAty" >
         </activity>
+
         <activity
             android:name=".activities.ViewUserInfoAty"
             android:label="@string/title_activity_view_user_info_aty" >
-        </activity>
-        <activity
-            android:name=".activities.TaskListAty"
-            android:label="@string/title_activity_task_list_aty" >
         </activity>
         <activity
             android:name=".activities.TaskInfoAty"
@@ -58,12 +58,8 @@
             android:label="@string/title_activity_feed_back_aty" >
         </activity>
         <activity
-            android:name=".activities.ViewSelfUserInfoAty"
-            android:label="@string/title_activity_view_self_user_info_aty" >
-        </activity>
-        <activity
-            android:name=".activities.EditableTaskInfoAty"
-            android:label="@string/title_activity_editable_task_info_aty" >
+            android:name=".activities.ViewSelfTaskListAty"
+            android:label="@string/title_activity_view_self_task_list_aty" >
         </activity>
     </application>
 

@@ -6,57 +6,89 @@
     android:orientation="vertical"
     tools:context="com.reuworld.reworld.activities.PublishTaskScdAty">
     <LinearLayout
+        android:background="@color/app_color"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <!--bar-->
         <TextView
+            android:text="发布任务"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="1.5">
         <TextView
+            android:textSize="20sp"
+            android:gravity="left"
             android:text="@string/reword_number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"/>
+            android:layout_weight="7"/>
         <Button
+            android:id="@+id/sub1"
+            android:background="@color/app_color"
+            android:text="-"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
         <EditText
+            android:inputType="numberDecimal"
+            android:id="@+id/bountyEdit"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="2"/>
         <Button
+            android:id="@+id/add1"
+            android:background="@color/app_color"
+            android:text="+"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="1.5">
         <TextView
+            android:textSize="20sp"
+            android:gravity="left"
             android:text="@string/deposit_number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"/>
+            android:layout_weight="7"/>
         <Button
+            android:id="@+id/sub2"
+            android:background="@color/app_color"
+            android:text="-"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
         <EditText
+            android:inputType="numberDecimal"
+            android:id="@+id/depositEdit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
         <Button
+            android:id="@+id/add2"
+            android:background="@color/app_color"
+            android:text="+"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
@@ -65,58 +97,91 @@
 
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="1.5">
         <TextView
+            android:textSize="20sp"
+            android:gravity="left"
             android:text="@string/task_wait_time"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"/>
+            android:layout_weight="7"/>
         <Button
+            android:id="@+id/sub3"
+            android:background="@color/app_color"
+            android:text="-"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
         <EditText
+            android:inputType="numberDecimal"
+            android:id="@+id/waitTimeEdit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
         <Button
+            android:id="@+id/add3"
+            android:background="@color/app_color"
+            android:text="+"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="1.5">
         <TextView
+            android:textSize="20sp"
+            android:gravity="left"
             android:text="@string/task_end_time"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"/>
+            android:layout_weight="7"/>
         <Button
+            android:id="@+id/sub4"
+            android:background="@color/app_color"
+            android:text="-"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
         <EditText
+            android:inputType="numberDecimal"
+            android:id="@+id/endTimeEdit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
         <Button
+            android:id="@+id/add4"
+            android:background="@color/app_color"
+            android:text="+"
+            android:textSize="40sp"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"/>
     </LinearLayout>
     <Switch
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="@string/need_confirmed"
-        android:id="@+id/switch1"
+        android:id="@+id/confirmSwitch"
         android:layout_weight="1" />
     <Button
+        android:layout_marginTop="10dp"
+        android:background="@color/app_color"
         android:text="@string/attach_pic"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
@@ -128,10 +193,12 @@
 
     </LinearLayout>
     <Button
+        android:background="@color/app_color"
+        android:id="@+id/publishBtn"
         android:text="@string/publish_task"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"/>
+        android:layout_weight="1.5"/>
 
 </LinearLayout>
 

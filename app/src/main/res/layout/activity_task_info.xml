@@ -1,4 +1,5 @@
 <LinearLayout
+    android:id="@+id/layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.reuworld.reworld.activities.TaskInfoAty"
@@ -7,15 +8,20 @@
     android:orientation="vertical">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<ScrollView-->
+        <!--android:layout_weight="10"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp">-->
         <LinearLayout
+            android:id="@+id/mainLayout"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_weight="10"
+            android:layout_height="0dp">
 
             <LinearLayout
+                android:background="@color/app_color"
+                android:id="@+id/barLayout"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
@@ -23,8 +29,17 @@
                 <TextView
                     android:gravity="center"
                     android:text="@string/task_info"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
                     android:layout_height="match_parent" />
+                <Button
+                    android:background="@color/app_color"
+                    android:text="编辑"
+                    android:id="@+id/editBtn"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
             </LinearLayout>
 
     <LinearLayout
@@ -34,53 +49,91 @@
 
         <TextView
             android:layout_weight="3"
+            android:id="@+id/taskTitleText"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_width="1dp"
+            android:background="@color/primary_dark"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:id="@+id/rewordText"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp" />
             <TextView
+                android:id="@+id/depositText"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp" />
         </LinearLayout>
+
     </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/primary_dark"
+                android:layout_height="1dp">
+
+            </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="1">
         <ImageView
+            android:id="@+id/headPortrait"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/usernameText"
             android:layout_weight="3"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
 
     </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/primary_dark"
+                android:layout_height="1dp">
+
+            </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5">
     <!-- left for task content-->
+        <TextView
+            android:id="@+id/taskDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
     </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/primary_dark"
+                android:layout_height="1dp">
+
+            </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
+        <TextView
+            android:id="@+id/leftTimeText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
         <!--left for timer-->
     </LinearLayout>
     <LinearLayout
@@ -88,9 +141,22 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <!--left for labels-->
+
+
     </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
+            <!--<Button-->
+                <!--android:id="@+id/taskState"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp" />-->
+        <!--</LinearLayout>-->
+    <!--</ScrollView>-->
+    <Button
+        android:id="@+id/getTaskBtn"
+        android:text="接取任务"
+        android:background="@color/app_color"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>
-
+</LinearLayout>

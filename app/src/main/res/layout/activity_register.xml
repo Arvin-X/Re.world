@@ -1,93 +1,133 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
     tools:context="com.reuworld.reworld.activities.RegisterAty"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户名:"
-            android:textSize="20dp"
+            android:textSize="15sp"
             />
         <EditText
+            android:id="@+id/usernameEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="3-10个字符，开头为字母"
+            android:textSize="15sp"
+            android:hint="3-10个字符，只能以字母开头"
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮箱"
+            android:textSize="15sp"
+            />
+        <EditText
+            android:id="@+id/emailEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:hint="请输入合法的邮箱地址"
+            android:inputType="textPassword"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20sp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="密码:"
-            android:textSize="20dp"
+            android:textSize="15sp"
             />
         <EditText
+            android:id="@+id/passwdEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="3-10个字符"
+            android:textSize="15sp"
             android:inputType="textPassword"
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="确认密码:"
-            android:textSize="20dp"
+            android:textSize="15sp"
             />
         <EditText
+            android:id="@+id/confirmPasswdEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="再次输入密码"
+            android:textSize="15sp"
             android:inputType="textPassword"
             />
     </LinearLayout>
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="性别:"
-            android:textSize="20dp"
+            android:textSize="15sp"
             />
         <RadioGroup
+            android:id="@+id/sexRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
+                android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="男"
                 android:layout_weight="1"
                 />
             <RadioButton
+                android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="女"
@@ -96,31 +136,40 @@
         </RadioGroup>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="地区:"
-            android:textSize="20dp"
-            android:layout_marginRight="80dp"
-            />
-        <Spinner
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:entries="@array/citys"
-            >
+    <!--<LinearLayout-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_marginTop="15dp">-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="地区:"-->
+            <!--android:textSize="15sp"-->
+            <!--android:layout_marginRight="80dp"-->
+            <!--/>-->
+        <!--<Spinner-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:entries="@array/citys"-->
+            <!-->-->
 
-        </Spinner>
-    </LinearLayout>
+        <!--</Spinner>-->
+    <!--</LinearLayout>-->
 <Button
-    android:layout_width="234dp"
-    android:layout_height="wrap_content"
+    android:background="@color/app_color"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
     android:text="注册"
-    android:layout_marginLeft="50dp"
-    android:layout_marginTop="20dp"
-    android:id="@id/register"
+
+
+    android:id="@+id/registerBtn"
     />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="2">
+
+</LinearLayout>
 </LinearLayout>

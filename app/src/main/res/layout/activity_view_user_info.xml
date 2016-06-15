@@ -3,23 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/divider_gray"
     tools:context="com.reuworld.reworld.activities.ViewUserInfoAty">
     <LinearLayout
+        android:background="@color/app_color"
+        android:id="@+id/barLayout"
         android:layout_weight="1"
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="0dp">
         <!--bar-->
         <TextView
+            android:layout_weight="3"
+            android:text="个人信息"
             android:gravity="center"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent" />
+        <Button
+            android:background="@color/app_color"
+            android:id="@+id/editBtn"
+            android:text="编辑"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
     <LinearLayout
+        android:background="@color/white"
         android:orientation="horizontal"
         android:layout_weight="2"
         android:layout_width="fill_parent"
         android:layout_height="0dp">
         <ImageView
+            android:id="@+id/headPortrait"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
@@ -39,6 +55,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
                 <TextView
+                    android:id="@+id/usernameText"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -55,6 +72,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
                 <TextView
+                    android:id="@+id/sexText"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -65,17 +83,27 @@
         </LinearLayout>
     </LinearLayout>
     <TextView
+        android:background="@color/white"
+        android:id="@+id/selfInfoText"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp" />
+
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
     </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/primary_dark"-->
+        <!--android:layout_height="1dp">-->
+
+    <!--</LinearLayout>-->
 
     <LinearLayout
+        android:background="@color/white"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -86,11 +114,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/getBountyText"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
     </LinearLayout>
+
     <LinearLayout
+        android:background="@color/white"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -101,17 +132,31 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/loseMoneyText"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
     </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/primary_dark"-->
+        <!--android:layout_height="1dp">-->
+
+    <!--</LinearLayout>-->
     <LinearLayout
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
     </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/primary_dark"-->
+        <!--android:layout_height="1dp">-->
+
+    <!--</LinearLayout>-->
     <LinearLayout
+        android:background="@color/white"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -122,11 +167,21 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/completedText"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
+        <Button
+            android:background="@color/app_color"
+            android:text="查看"
+            android:id="@+id/viewCompletedBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -137,9 +192,23 @@
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:id="@+id/failedText"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
+        <Button
+            android:background="@color/app_color"
+            android:text="查看"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/viewFailedBtn"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/primary_dark"
+        android:layout_height="1dp">
+
     </LinearLayout>
 
     <LinearLayout

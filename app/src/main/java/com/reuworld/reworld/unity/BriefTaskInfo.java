@@ -5,8 +5,12 @@ package com.reuworld.reworld.unity;
  * Data Unity V1.0
  */
 public class BriefTaskInfo {
+    //UserID
+    int userId;
     //任务标题
     String taskTitle;
+    //任务描述
+    String taskDescription;
     //任务ID
     int taskID;
     //任务发布者
@@ -23,8 +27,10 @@ public class BriefTaskInfo {
     String waitTime;
 
 
-    public BriefTaskInfo(String taskTitle,int taskID,String promulgatorName,int bounty,int state,String promulgateTime,String labels,String waitTime){
+    public BriefTaskInfo(int userId,String taskTitle,String taskDescription,int taskID,String promulgatorName,int bounty,int state,String promulgateTime,String labels,String waitTime){
+        this.userId=userId;
         this.taskTitle=taskTitle;
+        this.taskDescription=taskDescription;
         this.taskID=taskID;
         this.promulgateTime=promulgateTime;
         this.promulgatorName=promulgatorName;
@@ -70,6 +76,17 @@ public class BriefTaskInfo {
         return waitTime;
     }
 
+    public int getUserId(){
+        return userId;
+    }
+    public void setUserId(int userId){
+        this.userId=userId;
+    }
+
+    public String getTaskDescription(){
+        return taskDescription;
+    }
+
     public void setBounty(int bounty) {
         this.bounty = bounty;
     }
@@ -84,5 +101,9 @@ public class BriefTaskInfo {
 
     public void setWaitTime(String waitTime) {
         this.waitTime = waitTime;
+    }
+
+    public void setTaskDescription(String taskDescription){
+        this.taskDescription=taskDescription;
     }
 }

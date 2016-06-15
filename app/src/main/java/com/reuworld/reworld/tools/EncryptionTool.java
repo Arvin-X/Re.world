@@ -1,7 +1,11 @@
 package com.reuworld.reworld.tools;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.util.Log;
 
+import java.io.ByteArrayOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -50,4 +54,23 @@ public class EncryptionTool {
         }
         return sb.toString();
     }
+
+    public static String img2Str(Bitmap bitmap){
+        ByteArrayOutputStream b = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, b);
+        byte[] bytes = b.toByteArray();
+
+        //base64 encode
+        byte[] encode = Base64.encode(bytes, Base64.DEFAULT);
+        String encodeString = new String(encode);
+        return encodeString;
+    }
+
+    public static Bitmap str2Img(String s){
+        byte[] decode = Base64.decode(s,Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(decode, 0, decode.length);
+        return bitmap;
+    }
+
+
 }

@@ -8,6 +8,7 @@
 
 
     <LinearLayout
+        android:background="@color/app_color"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
@@ -20,19 +21,23 @@
     </LinearLayout>
 
     <EditText
-        android:text="@string/input_task_title"
+        android:id="@+id/taskTitleEdit"
+        android:hint="@string/input_task_title"
         android:background="@null"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
     <EditText
+        android:id="@+id/taskDescriptionEdit"
         android:gravity="top"
-        android:text="@string/input_task_desciption"
+        android:hint="@string/input_task_desciption"
         android:background="@null"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="8"/>
     <Button
+        android:background="@color/app_color"
+        android:id="@+id/nextStepBtn"
         android:text="@string/next_step"
         android:layout_width="fill_parent"
         android:layout_height="0dp"

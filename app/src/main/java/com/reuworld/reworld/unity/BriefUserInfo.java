@@ -11,17 +11,20 @@ public class BriefUserInfo {
     int id;
     //用户等级
     int level;
+    //性别，女0，男1
+    int sex;
     //用户昵称
-    String userName;
+    String username;
     //用户头像
     String headPortrait;
     //个人说明
     String selfIntro;
 
-    public BriefUserInfo(int id, int level,String userName,String headPortrait,String selfIntro){
+    public BriefUserInfo(int id, int level,int sex,String username,String headPortrait,String selfIntro){
         this.id=id;
         this.level=level;
-        this.userName=userName;
+        this.sex=sex;
+        this.username=username;
         this.headPortrait=headPortrait;
         this.selfIntro=selfIntro;
     }
@@ -41,6 +44,10 @@ public class BriefUserInfo {
         return level;
     }
 
+    public int getSex(){
+        return sex;
+    }
+
     public String getHeadPortrait() {
         return headPortrait;
     }
@@ -49,8 +56,8 @@ public class BriefUserInfo {
         return selfIntro;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public void setHeadPortrait(String headPortrait) {
@@ -69,8 +76,12 @@ public class BriefUserInfo {
         this.selfIntro = selfIntro;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setSex(int sex){
+        this.sex=sex;
     }
 
 }

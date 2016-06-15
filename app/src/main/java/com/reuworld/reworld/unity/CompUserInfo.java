@@ -22,9 +22,9 @@ public class CompUserInfo extends BriefUserInfo {
     int[] failedTaskList;
 
 
-    public CompUserInfo(int id,int level, String userName,String headPortrait,String selfIntro,float score,int getMoney,
+    public CompUserInfo(int id,int level, int sex, String username,String headPortrait,String selfIntro,float score,int getMoney,
                         int loseMoney,int completedTaskNum,int failedTaskNum,int[] completedTaskList,int[] failedTaskList){
-         super(id,level,userName,headPortrait,selfIntro);
+        super(id,level,sex,username,headPortrait,selfIntro);
         this.score=score;
         this.getMoney=getMoney;
         this.loseMoney=loseMoney;

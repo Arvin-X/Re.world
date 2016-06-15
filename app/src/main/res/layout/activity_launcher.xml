@@ -5,6 +5,7 @@
     tools:context="com.reuworld.reworld.activities.LauncherAty">
 
     <ImageView
+        android:src="@drawable/reworld_1024_768"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerInParent="true"

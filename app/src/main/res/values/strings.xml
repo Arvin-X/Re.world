@@ -24,6 +24,10 @@
     <string name="task_info">任务信息</string>
     <string name="feedback_bar">反馈</string>
     <string name="view_task_list">任务列表</string>
+    <string name="recommend">推荐</string>
+    <string name="highReword">高悬赏</string>
+    <string name="all">全部</string>
+    <string name="settings">设置</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -53,5 +57,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_self_task_list_aty">ViewSelfTaskListAty</string>
 
 </resources>

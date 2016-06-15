@@ -15,7 +15,7 @@ public class CompTaskInfo extends BriefTaskInfo{
     String mercenary;
     //任务完成者（们）
     String compMercenary;
-    //任务截止时间
+    //任务截止时间,like 9999-12-31 23:59:59
     String endTime;
     //任务附图
     String attachPNG;
@@ -23,16 +23,14 @@ public class CompTaskInfo extends BriefTaskInfo{
     boolean isComfirmNeed;
     //任务地域信息（为空则不包含地域信息）
     String areaDescription;
-    //任务描述
-    String taskDescription;
     //已结束任务评价信息
-    //Id+time+score+comment+";" partition by blank space
+    //Id+time+score+comment+";" partition by semicolon
     String evaluateInfo;
 
-    public CompTaskInfo(String taskTitle,int taskID,String promulgatorName,int bounty,int state,String promulgateTime,String labels,String waitTime,
+    public CompTaskInfo(int userId,String taskTitle,int taskID,String promulgatorName,int bounty,int state,String promulgateTime,String labels,String waitTime,
                         int deposit,String lastEditTime,String waitMercenary,String mercenary,String compMercenary,String endTime,String attachPNG,
                         boolean isComfirmNeed, String areaDescription,String taskDescription,String evaluateInfo){
-        super(taskTitle,taskID,promulgatorName,bounty,state,promulgateTime,labels,waitTime);
+        super(userId,taskTitle,taskDescription,taskID,promulgatorName,bounty,state,promulgateTime,labels,waitTime);
         this.deposit=deposit;
         this.lastEditTime=lastEditTime;
         this.waitMercenary=waitMercenary;
@@ -42,9 +40,29 @@ public class CompTaskInfo extends BriefTaskInfo{
         this.attachPNG=attachPNG;
         this.isComfirmNeed=isComfirmNeed;
         this.areaDescription=areaDescription;
-        this.taskDescription=taskDescription;
         this.evaluateInfo=evaluateInfo;
     }
+
+    //use for new Task
+    public CompTaskInfo(String taskTitle,String taskDescription,int bounty,int deposit,String waitTime,String endTime,int userId){
+        super(0,"","",0,"",0,0,"","","");
+        this.deposit=deposit;
+        this.bounty=bounty;
+        this.taskTitle=taskTitle;
+        this.taskDescription=taskDescription;
+        this.waitTime=waitTime;
+        this.endTime=endTime;
+        this.lastEditTime="";
+        this.waitMercenary="";
+        this.mercenary="";
+        this.compMercenary="";
+        this.attachPNG="";
+        this.isComfirmNeed=false;
+        this.areaDescription="";
+        this.evaluateInfo="";
+        this.userId=userId;
+    }
+
 
     public boolean isComfirmNeed() {
         return isComfirmNeed;
@@ -117,5 +135,13 @@ public class CompTaskInfo extends BriefTaskInfo{
 
     public void setTaskDescription(String taskDescription) {
         this.taskDescription = taskDescription;
+    }
+
+    public int getUserId(){
+        return userId;
+    }
+
+    public void setUserId(int userId){
+        this.userId=userId;
     }
 }

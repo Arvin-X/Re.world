@@ -52,7 +52,6 @@
             android:layout_weight="1"
             android:textSize="15sp"
             android:hint="请输入合法的邮箱地址"
-            android:inputType="textPassword"
             />
     </LinearLayout>
     <LinearLayout

@@ -42,6 +42,8 @@ public class SettingsFrg extends Fragment {
     private CompUserSelfInfo compUserSelfInfo;
 
     private Button selfInfoBtn;
+    private Button runningTaskListBtn;
+    private Button publishedTaskListBtn;
     private ImageView imgHead;
     public SettingsFrg() {
         // Required empty public constructor
@@ -69,8 +71,9 @@ public class SettingsFrg extends Fragment {
                              Bundle savedInstanceState) {
         View contentView=inflater.inflate(R.layout.fragment_settings, container, false);
         selfInfoBtn=(Button)contentView.findViewById(R.id.selfInfoBtn);
+        runningTaskListBtn=(Button)contentView.findViewById(R.id.runningTaskListBtn);
+        publishedTaskListBtn=(Button)contentView.findViewById(R.id.publishedTaskListBtn);
         imgHead=(ImageView)contentView.findViewById(R.id.imgHead);
-        runningTaskListbtn=(Button)contentView.findViewById(R.id.runningTaskListBtn);
         if(getArguments()!=null){
             userId=getArguments().getInt("userId");
         }
@@ -85,6 +88,26 @@ public class SettingsFrg extends Fragment {
             }
         });
 
+        runningTaskListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingsFrg.this.getActivity(),ViewSelfTaskListAty.class);
+                intent.putExtra("listType",4);
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+            }
+        });
+
+        publishedTaskListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingsFrg.this.getActivity(),ViewSelfTaskListAty.class);
+                intent.putExtra("listType",5);
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+            }
+        });
+
         Call<Map<String,Object>> call= DataClient.service.getCompUserSelfInfo(DataClient.ACTION_GET_COMP_USERSELFINFO,userId);
         call.enqueue(new Callback<Map<String, Object>>() {
             @Override
@@ -94,18 +117,19 @@ public class SettingsFrg extends Fragment {
                 int statecode = ((Double) response.body().get("statecode")).intValue();
                 if (statecode == 0) {
                     compUserSelfInfo = gson.fromJson(response.body().get("content").toString(), CompUserSelfInfo.class);
-                    imgHead.setImageBitmap(EncryptionTool.str2Img(compUserSelfInfo.getHeadPortrait()));
+                    if(compUserSelfInfo.getHeadPortrait()!=null)
+                        imgHead.setImageBitmap(EncryptionTool.str2Img(compUserSelfInfo.getHeadPortrait()));
 
                     if(compUserSelfInfo.getRunningTaskList().length!=0) {
-                        runningTaskListbtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(SettingsFrg.this.getActivity(), ViewSelfTaskListAty.class);
-                                intent.putExtra("listType", 0);
-                                intent.putExtra("listContent", compUserSelfInfo.getRunningTaskList());
-                                startActivity(intent);
-                            }
-                        });
+//                        runningTaskListbtn.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                Intent intent = new Intent(SettingsFrg.this.getActivity(), ViewSelfTaskListAty.class);
+//                                intent.putExtra("listType", 0);
+//                                intent.putExtra("listContent", compUserSelfInfo.getRunningTaskList());
+//                                startActivity(intent);
+//                            }
+//                        });
                     }
                 } else {
                     Toast.makeText(SettingsFrg.this.getActivity(), "加载失败！", Toast.LENGTH_SHORT).show();

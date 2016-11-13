@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.reuworld.reworld.activities.TaskInfoAty"
     android:layout_width="match_parent"
+    android:background="@color/divider_gray"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -48,13 +49,14 @@
         android:layout_height="0dp">
 
         <TextView
+            android:background="@color/white"
             android:layout_weight="3"
             android:id="@+id/taskTitleText"
+            android:textSize="20sp"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <LinearLayout
-            android:layout_width="1dp"
-            android:background="@color/primary_dark"
+            android:layout_width="3dp"
             android:layout_height="match_parent">
 
         </LinearLayout>
@@ -64,11 +66,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:background="@color/white"
                 android:id="@+id/rewordText"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="3dp">
+            </LinearLayout>
             <TextView
+                android:background="@color/white"
                 android:id="@+id/depositText"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -78,8 +86,7 @@
     </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="@color/primary_dark"
-                android:layout_height="1dp">
+                android:layout_height="3dp">
 
             </LinearLayout>
     <LinearLayout
@@ -88,11 +95,13 @@
         android:orientation="horizontal"
         android:layout_weight="1">
         <ImageView
+            android:background="@color/white"
             android:id="@+id/headPortrait"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent" />
         <TextView
+            android:background="@color/white"
             android:id="@+id/usernameText"
             android:layout_weight="3"
             android:layout_width="0dp"
@@ -101,9 +110,7 @@
     </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="@color/primary_dark"
-                android:layout_height="1dp">
-
+                android:layout_height="3dp">
             </LinearLayout>
 
     <LinearLayout
@@ -112,6 +119,7 @@
         android:layout_weight="5">
     <!-- left for task content-->
         <TextView
+            android:background="@color/white"
             android:id="@+id/taskDescriptionText"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -121,9 +129,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="@color/primary_dark"
-                android:layout_height="1dp">
-
+                android:layout_height="3dp">
             </LinearLayout>
     <LinearLayout
         android:layout_weight="1"
@@ -131,12 +137,17 @@
         android:layout_height="0dp">
 
         <TextView
+            android:background="@color/white"
             android:id="@+id/leftTimeText"
+            android:text="剩余时间: 24小时"
+            android:textSize="20sp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <!--left for timer-->
     </LinearLayout>
     <LinearLayout
+        android:background="@color/white"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">

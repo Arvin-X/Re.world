@@ -104,7 +104,8 @@ public class ViewUserInfoAty extends Activity {
                     lostMoneyText.setText(compUserInfo.getLoseMoney() + "");
                     completedText.setText(compUserInfo.getCompletedTaskNum() + "");
                     failedText.setText(compUserInfo.getFailedTaskNum() + "");
-                    headPortrait.setImageBitmap(EncryptionTool.str2Img(compUserInfo.getHeadPortrait()));
+                    if(compUserInfo.getHeadPortrait()!=null)
+                        headPortrait.setImageBitmap(EncryptionTool.str2Img(compUserInfo.getHeadPortrait()));
 
 
                 } else {

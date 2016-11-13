@@ -1,6 +1,8 @@
 package com.reuworld.reworld.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -123,9 +125,19 @@ public class TaskInfoAty extends Activity {
                         final CompTaskInfo compTaskInfo = gson.fromJson(response.body().get("content").toString(), CompTaskInfo.class);
                         taskTitleText.setText(compTaskInfo.getTaskTitle());
                         taskDescriptionText.setText(compTaskInfo.getTaskDescription());
-                        usernameText.setText(compTaskInfo.getPromulgatorName());
-                        rewordText.setText(compTaskInfo.getBounty()+"");
-                        depositText.setText(compTaskInfo.getDeposit()+"");
+                        usernameText.setText("发布者: "+compTaskInfo.getPromulgatorName());
+                        rewordText.setText("赏:"+compTaskInfo.getBounty()+"");
+                        depositText.setText("压:"+compTaskInfo.getDeposit()+"");
+
+                        if(taskId>15 && taskId<20) {
+                            getTaskBtn.setText("任务进行中");
+                            setBtnStateToGrey();
+                        }
+
+                        if(taskId==20){
+                            getTaskBtn.setText("等待接取");
+                            setBtnStateToGrey();
+                        }
 
 
                         //now get User Info
@@ -138,8 +150,19 @@ public class TaskInfoAty extends Activity {
                                 int statecode=((Double)response.body().get("statecode")).intValue();
                                 if(statecode==0){
                                     compUserInfo=gson.fromJson(response.body().get("content").toString(), CompUserInfo.class);
-                                    Log.i(TAG,compUserInfo.getHeadPortrait());
-                                    imgHead.setImageBitmap(EncryptionTool.str2Img(compUserInfo.getHeadPortrait()));
+                                    if(compUserInfo.getHeadPortrait()!=null) {
+                                        Log.i(TAG, compUserInfo.getHeadPortrait());
+                                        imgHead.setImageBitmap(EncryptionTool.str2Img(compUserInfo.getHeadPortrait()));
+                                    }
+                                    imgHead.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent intent = new Intent(TaskInfoAty.this, ViewUserInfoAty.class);
+                                            intent.putExtra("isSelf", 1);
+                                            intent.putExtra("userId", compUserInfo.getId());
+                                            startActivity(intent);
+                                        }
+                                    });
                                 }else {
                                     Toast.makeText(TaskInfoAty.this,"失败！",Toast.LENGTH_SHORT).show();
                                 }
@@ -206,16 +229,40 @@ public class TaskInfoAty extends Activity {
                                                 @Override
                                                 public void onResponse(Call<Integer> call, Response<Integer> response) {
                                                     if (response.body() == 0) {
-                                                        Toast.makeText(TaskInfoAty.this, "接取任务成功!", Toast.LENGTH_SHORT).show();
-                                                        getTaskBtn.setText("提交任务");
-                                                        getTaskBtn.setOnClickListener(new View.OnClickListener() {
+
+                                                        //Dialog
+                                                        new AlertDialog.Builder(TaskInfoAty.this).setTitle("确认接取？").setPositiveButton("确认", new DialogInterface.OnClickListener() {
                                                             @Override
-                                                            public void onClick(View v) {
-                                                                Toast.makeText(TaskInfoAty.this, "提交成功!",Toast.LENGTH_SHORT).show();
-                                                                getTaskBtn.setText("任务已结束");
-                                                                setBtnStateToGrey();
+                                                            public void onClick(DialogInterface dialog, int which) {
+                                                                new AlertDialog.Builder(TaskInfoAty.this).setTitle("等待支付").setMessage("等待支付完成...").setPositiveButton("完成", new DialogInterface.OnClickListener() {
+                                                                    @Override
+                                                                    public void onClick(DialogInterface dialog, int which) {
+
+                                                                        Toast.makeText(TaskInfoAty.this, "接取任务成功!", Toast.LENGTH_SHORT).show();
+                                                                        getTaskBtn.setText("提交任务");
+                                                                        getTaskBtn.setOnClickListener(new View.OnClickListener() {
+                                                                            @Override
+                                                                            public void onClick(View v) {
+
+                                                                                new AlertDialog.Builder(TaskInfoAty.this).setTitle("确认提交？").setMessage("一旦提交将无法撤销此操作，确认继续？").setPositiveButton("继续", new DialogInterface.OnClickListener() {
+                                                                                    @Override
+                                                                                    public void onClick(DialogInterface dialog, int which) {
+                                                                                        Toast.makeText(TaskInfoAty.this, "提交成功!", Toast.LENGTH_SHORT).show();
+                                                                                        getTaskBtn.setText("任务已结束");
+                                                                                        setBtnStateToGrey();
+                                                                                    }
+                                                                                }).show();
+
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                }).show();
                                                             }
-                                                        });
+                                                        }).setNegativeButton("取消", null).show();
+
+
+
+
 
 
                                                     } else {

@@ -1,6 +1,9 @@
 package com.reuworld.reworld.activities;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.reuworld.reworld.R;
+import com.reuworld.reworld.fragments.TaskListFrg;
 import com.reuworld.reworld.tools.DataClient;
 import com.reuworld.reworld.unity.CompTaskInfo;
 
@@ -27,6 +31,8 @@ public class ViewSelfTaskListAty extends Activity {
     private final int runningList=0;
     private final int completedList=1;
     private final int failedList=2;
+    private FragmentManager fm;
+    private Fragment recommendFrg;
     private ListView listView;
     private List<Map<String,String>> taskListContent;
     SimpleAdapter listAdapter;
@@ -35,49 +41,16 @@ public class ViewSelfTaskListAty extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_self_task_list_aty);
-        listView=(ListView)findViewById(R.id.listView);
 
         int listType=getIntent().getIntExtra("listType", 0);
-        int[] listContent=getIntent().getIntArrayExtra("listContent");
+        int userId=getIntent().getIntExtra("userId",0);
 
-        taskListContent=new ArrayList<>();
+        recommendFrg= TaskListFrg.newInstance(listType, userId);
 
-        for(int dstId:listContent){
-            Call<Map<String,Object>> call= DataClient.service.getCompTaskInfo(DataClient.ACTION_GET_COMP_TASKINFO,dstId);
-            call.enqueue(new Callback<Map<String, Object>>() {
-                @Override
-                public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
-                    int statecode = ((Double)response.body().get("statecode")).intValue();
-                    if (statecode == 0) {
-                        final CompTaskInfo compTaskInfo = gson.fromJson(response.body().get("content").toString(), CompTaskInfo.class);
-
-                        Map<String, String> map=new HashMap<String, String>();
-                        map.put("taskId",compTaskInfo.getTaskID()+"");
-                        map.put("taskTitle", compTaskInfo.getTaskTitle());
-                        map.put("taskDescription", compTaskInfo.getTaskDescription());
-                        map.put("promulgatorName", compTaskInfo.getPromulgatorName());
-                        map.put("bounty", compTaskInfo.getBounty() + "");
-                        taskListContent.add(map);
-
-                    }else {
-                        Toast.makeText(ViewSelfTaskListAty.this,"错误！",Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<Map<String, Object>> call, Throwable t) {
-                    Toast.makeText(ViewSelfTaskListAty.this,"错误！",Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-        listAdapter=new SimpleAdapter(ViewSelfTaskListAty.this, taskListContent, R.layout.listview_tasklist,
-                new String[]{"taskTitle", "taskDescription", "promulgatorName", "bounty"},
-                new int[]{R.id.titleText, R.id.descriptionText, R.id.usernameText, R.id.rewordText});
-
-        listView.setAdapter(listAdapter);
-
+        fm=getFragmentManager();
+        FragmentTransaction transaction=fm.beginTransaction();
+        transaction.replace(R.id.contentFl, recommendFrg);
+        transaction.commit();
     }
 
     @Override

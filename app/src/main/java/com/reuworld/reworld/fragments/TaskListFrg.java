@@ -245,7 +245,7 @@ public class TaskListFrg extends ListFragment implements BGARefreshLayout.BGARef
             map.put("taskTitle", briefTaskInfo.getTaskTitle());
             map.put("taskDescription", briefTaskInfo.getTaskDescription());
             map.put("promulgatorName", briefTaskInfo.getPromulgatorName());
-            map.put("bounty", briefTaskInfo.getBounty() + "");
+            map.put("bounty", "¥ "+briefTaskInfo.getBounty());
             result.add(map);
         }
         return result;

@@ -111,7 +111,7 @@ public class EditSelfInfoAty extends Activity {
                 int statecode = ((Double) response.body().get("statecode")).intValue();
                 if (statecode == 0) {
                     compUserSelfInfo = gson.fromJson(response.body().get("content").toString(), CompUserSelfInfo.class);
-                    Log.i(TAG,"username: "+compUserSelfInfo.getUsername());
+                    Log.i(TAG, "username: " + compUserSelfInfo.getUsername());
                     usernameEdit.setText(compUserSelfInfo.getUsername());
                     if(compUserSelfInfo.getSex()==0){
                         female.toggle();
@@ -121,7 +121,8 @@ public class EditSelfInfoAty extends Activity {
                     selfIntroEdit.setText(compUserSelfInfo.getSelfIntro());
                     emailEdit.setText(compUserSelfInfo.getEmail());
                     phoneEdit.setText(compUserSelfInfo.getPhoneNumber());
-                    headImg.setImageBitmap(EncryptionTool.str2Img(compUserSelfInfo.getHeadPortrait()));
+                    if(compUserSelfInfo.getHeadPortrait()!=null)
+                        headImg.setImageBitmap(EncryptionTool.str2Img(compUserSelfInfo.getHeadPortrait()));
 
                 } else {
                     Toast.makeText(EditSelfInfoAty.this, "加载失败！", Toast.LENGTH_SHORT).show();
@@ -150,6 +151,7 @@ public class EditSelfInfoAty extends Activity {
                 compUserSelfInfo.setPhoneNumber(phone);
 
                 Call<Integer> callComp=DataClient.service.updateSelfInfo(DataClient.ACTION_UPDATE_USERINFO,compUserSelfInfo);
+                Log.i(TAG,"updateSelfUserInfo: userinfo: "+ gson.toJson(compUserSelfInfo));
                 callComp.enqueue(new Callback<Integer>() {
                     @Override
                     public void onResponse(Call<Integer> call, Response<Integer> response) {
@@ -197,7 +199,7 @@ public class EditSelfInfoAty extends Activity {
             try {
                 final Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
                 Call<Integer> call=DataClient.service.changeAvatar(DataClient.ACTION_CHANGE_AVATAR,userId, EncryptionTool.img2Str(bitmap));
-
+                Log.i(TAG,"changeAvatar: "+EncryptionTool.img2Str(bitmap));
                 call.enqueue(new Callback<Integer>() {
                     @Override
                     public void onResponse(Call<Integer> call, Response<Integer> response) {

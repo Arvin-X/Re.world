@@ -6,6 +6,7 @@
 
     <TextView
         android:id="@+id/titleText"
+        android:textSize="20sp"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp" />
@@ -28,7 +29,7 @@
                 android:id="@+id/usernameText"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="0"/>
             <TextView
                 android:id="@+id/rewordText"
                 android:layout_width="match_parent"

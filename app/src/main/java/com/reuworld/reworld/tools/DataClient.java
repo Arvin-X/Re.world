@@ -38,7 +38,7 @@ public class DataClient {
     private static OutputStream out;
     private static InputStream in;
 
-    private final static String dstUrl="http://115.28.68.89/";
+    private final static String dstUrl="http://123.207.242.224/";
     private final static String TAG="--DataClient--:";
 
 

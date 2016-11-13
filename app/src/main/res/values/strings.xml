@@ -4,11 +4,11 @@
     <string name="next_step">下一步</string>
     <string name="input_task_title">输入任务标题</string>
     <string name="input_task_desciption">输入任务描述</string>
-    <string name="reword_number">您的悬赏</string>
-    <string name="deposit_number">需要多少保证金？</string>
+    <string name="reword_number">您的悬赏？（元）</string>
+    <string name="deposit_number">需要多少保证金？(元)</string>
     <string name="need_confirmed">是否需要您的确认？</string>
-    <string name="task_wait_time">任务等待时间</string>
-    <string name="task_end_time">任务截止时间</string>
+    <string name="task_wait_time">任务等待时间（小时）</string>
+    <string name="task_end_time">任务截止时间（小时）</string>
     <string name="attach_pic">我要附图</string>
     <string name="publish_task">发布任务</string>
     <string name="phone">手机</string>

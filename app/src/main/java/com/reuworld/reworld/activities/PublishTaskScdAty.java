@@ -1,6 +1,8 @@
 package com.reuworld.reworld.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -101,8 +103,16 @@ public class PublishTaskScdAty extends Activity {
                         Log.i(TAG, "call.onResponse: response info: " + response.code()+response.headers()+'\n'+response.body());
                         if(response.isSuccessful()) {
                             if (response.body() == 0) {
-                                Toast.makeText(PublishTaskScdAty.this, "发布成功!", Toast.LENGTH_SHORT).show();
-                                PublishTaskScdAty.this.finish();
+
+
+                                new AlertDialog.Builder(PublishTaskScdAty.this).setTitle("等待支付").setMessage("等待支付完成...").setPositiveButton("完成", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Toast.makeText(PublishTaskScdAty.this, "发布成功!", Toast.LENGTH_SHORT).show();
+                                        PublishTaskScdAty.this.finish();
+                                    }
+                                }).show();
+
                             } else {
                                 Toast.makeText(PublishTaskScdAty.this, "发布失败!", Toast.LENGTH_SHORT).show();
                             }
